@@ -10,14 +10,15 @@
 # ルートテーブルをサブネットと関連づけする
 #
 
+NAME_PREFIX=test
 VPC_CIDR=10.1.0.0/16
-VPC_NAME=test-vpc
+VPC_NAME=${NAME_PREFIX}-vpc
 PUBLIC_SUBNET_CIDR_1=10.1.1.0/24
-PUBLIC_SUBNET_NAME_1=test-public-subnet-ap-northeast-1a
+PUBLIC_SUBNET_NAME_1=${NAME_PREFIX}-public-subnet-ap-northeast-1a
 PUBLIC_SUBNET_CIDR_2=10.1.2.0/24
-PUBLIC_SUBNET_NAME_2=test-public-subnet-ap-northeast-1c
-ROUTE_TABLE_NAME=test-public-route-table
-IGE_NAME=test-igw
+PUBLIC_SUBNET_NAME_2=${NAME_PREFIX}-public-subnet-ap-northeast-1c
+ROUTE_TABLE_NAME=${NAME_PREFIX}-public-route-table
+IGE_NAME=${NAME_PREFIX}-igw
 
 VPC_ID=`aws ec2 create-vpc \
     --cidr-block $VPC_CIDR \
