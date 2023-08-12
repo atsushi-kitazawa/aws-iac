@@ -60,4 +60,7 @@ aws ec2 create-route \
   --destination-cidr-block 0.0.0.0/0 \
   --gateway-id $IGW_ID > /dev/null
 
-echo "created vpc ${VPC_NAME},${VPC_ID}"
+echo "created vpc, subnet"
+echo "vpc:${VPC_NAME}, ${VPC_ID}"
+echo "subnet1:${PUBLIC_SUBNET_NAME_1}, ${SUBNET_1}"
+echo "subnet2:${PUBLIC_SUBNET_NAME_2}, ${SUBNET_2}"
