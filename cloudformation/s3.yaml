@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation Template: S3 Bucket for Lambda Source Code'
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: lambda-source
+
+Resources:
+  LambdaSourceBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-${BucketName}
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+
+Outputs:
+  BucketName:
+    Description: 'Name of the S3 bucket for Lambda source code'
+    Value: !Ref LambdaSourceBucket
+    Export:
+      Name: !Sub ${AWS::StackName}-${BucketName}
